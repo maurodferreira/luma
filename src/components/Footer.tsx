@@ -9,7 +9,7 @@ export function Footer() {
           <div className="col-span-2 lg:col-span-1">
             <Logo light className="-mt-[3px] block w-fit text-[22px] leading-none" />
             <p className="mt-3 text-sm leading-6 text-footer-muted lg:max-w-[240px]">
-              Practical learning for curious people.
+              Practical learning for curious people who want to keep moving forward.
             </p>
           </div>
 

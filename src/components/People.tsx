@@ -22,9 +22,9 @@ export function People() {
           </h2>
 
           <p className="mt-6 text-base leading-[26px] text-ink md:mt-8 md:text-lg md:leading-7 md:text-muted">
-            Morbi sit egestas dignissim pharetra, sed amet. Tempus justo senectus risus ac vel,
-            velit, nunc. Eget commodo eget in aliquam facilisi facilisi nec magna hendrerit.
-            Placerat ipsum sit tellus urna, faucibus aenean lorem faucibus integer.
+            Learning feels more meaningful when you can learn from people who have been there.
+            Meet the practitioners behind our courses and the curious learners who share ideas,
+            ask thoughtful questions and put new skills into practice.
           </p>
 
           <Button
@@ -32,7 +32,7 @@ export function People() {
             variant="light"
             className="mt-6 h-[54px] !px-7 !py-[14px] md:mt-8"
           >
-            Explore teachers and students
+            Get involved with the community
           </Button>
         </div>
 

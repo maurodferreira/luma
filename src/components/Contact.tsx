@@ -43,13 +43,12 @@ export function Contact() {
               id="contact-title"
               className="mt-4 font-display text-[32px] font-extrabold leading-9 tracking-[-0.8px] md:text-[48px] md:leading-[56px] md:tracking-[-1.2px]"
             >
-              Get in touch
+              Let’s find your next step.
             </h2>
 
             <p className="mt-4 text-sm leading-6 text-muted md:text-lg md:leading-7">
-              Have a question? We’re here to help. Whether you’re looking for the right course,
-              learning with your team or interested in teaching with Luma, we’d love to hear from
-              you.
+              Choosing a course, planning learning for your team, or thinking about teaching with
+              Luma? Tell us what you have in mind and we’ll help you find the right place to start.
             </p>
           </div>
 
@@ -60,8 +59,8 @@ export function Contact() {
               </a>
             </InfoRow>
 
-            <InfoRow icon={<ClockIcon />} title="Response Time">
-              Up to 24 hours on business days
+            <InfoRow icon={<ClockIcon />} title="Response time">
+              Usually within one business day
             </InfoRow>
           </ul>
         </div>

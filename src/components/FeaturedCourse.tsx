@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { courseMeta } from "@/data/content";
+import { featuredCourse } from "@/data/content";
 import { Button } from "./Button";
 import { Container } from "./Container";
 import { ArrowRight } from "./Icons";
@@ -30,27 +30,26 @@ export function FeaturedCourse() {
 
         <div>
           <p className="text-xs font-semibold uppercase leading-4 tracking-[1.44px] text-white">
-            Most popular this month
+            {featuredCourse.eyebrow}
           </p>
 
           <h2
             id="featured-title"
             className="mt-4 font-display text-[32px] font-extrabold leading-9 tracking-[-0.8px] md:text-[48px] md:leading-[56px] md:tracking-[-1.2px]"
           >
-            Designing products people understand.
+            {featuredCourse.title}
           </h2>
 
           <p className="mt-5 max-w-[536px] text-sm leading-6 text-white md:text-base md:leading-7">
-            Learn how to turn complex workflows into simple, intentional product experiences through
-            research, structure and thoughtful interaction design.
+            {featuredCourse.description}
           </p>
 
           <p className="mt-6 text-sm leading-6 text-white md:text-base md:leading-7">
-            with Maya Chen · Senior Product Designer
+            with {featuredCourse.instructor.name} · {featuredCourse.instructor.role}
           </p>
 
           <ul className="mt-6 flex flex-wrap gap-3 text-sm leading-6">
-            {courseMeta.map((item) => (
+            {featuredCourse.meta.map((item) => (
               <li
                 key={item}
                 className="rounded-lg border border-line px-3.5 py-1.5 text-white-muted"
@@ -66,7 +65,7 @@ export function FeaturedCourse() {
               variant="sun"
               className="h-[52px] px-7 py-[14px] font-bold"
             >
-              View course
+              Ask about this course
             </Button>
 
             <a

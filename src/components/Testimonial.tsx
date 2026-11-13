@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { stats } from "@/data/content";
+import { learnerStory, stats } from "@/data/content";
 
 function QuoteMark() {
   return (
@@ -27,16 +27,13 @@ export function Testimonial() {
           <QuoteMark />
 
           <blockquote className="mt-4 font-display text-xl font-semibold leading-8 text-ink md:text-[30px] md:leading-[44px] md:tracking-[-0.75px]">
-            <p>
-              The lessons are short enough to fit into my week, but detailed enough that I actually
-              leave with something I can use.
-            </p>
+            <p>{learnerStory.quote}</p>
           </blockquote>
 
           <figcaption className="mt-8 flex items-center gap-4">
             <Image
               src="/avatar/alex-morgan.jpg"
-              alt="Alex Morgan"
+              alt={learnerStory.name}
               width={48}
               height={48}
               className="h-12 w-12 rounded-full object-cover"
@@ -44,10 +41,10 @@ export function Testimonial() {
 
             <div>
               <span className="block text-base font-bold leading-7 text-ink">
-                Alex Morgan
+                {learnerStory.name}
               </span>
               <span className="block text-sm leading-6 text-muted">
-                Product Manager
+                {learnerStory.role}
               </span>
             </div>
           </figcaption>

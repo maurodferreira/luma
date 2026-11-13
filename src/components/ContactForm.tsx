@@ -25,7 +25,7 @@ function validate(values: Fields): Errors {
   }
 
   if (values.message.trim().length < 10) {
-    errors.message = "Tell us a bit more (at least 10 characters).";
+    errors.message = "Tell us a little more (at least 10 characters).";
   }
 
   return errors;
@@ -43,7 +43,7 @@ export function ContactForm() {
     message: "",
   });
   const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [submitted, setSubmitted] = useState(false);
 
   const updateField = (field: keyof Fields) =>
     (event: { target: { value: string } }) => {
@@ -51,20 +51,23 @@ export function ContactForm() {
         ...current,
         [field]: event.target.value,
       }));
+      setSubmitted(false);
     };
 
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const validationErrors = validate(values);
     setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length > 0) return;
+    if (Object.keys(validationErrors).length > 0) {
+      setSubmitted(false);
+      return;
+    }
 
-    setStatus("sending");
-    await new Promise((resolve) => setTimeout(resolve, 700));
-    setStatus("sent");
-    setValues({ name: "", email: "", message: "" });
+    // This challenge has no backend, so keep the entered data and be clear that
+    // the form is only demonstrating client-side validation.
+    setSubmitted(true);
   }
 
   function renderField(field: keyof Fields, label: string) {
@@ -92,7 +95,7 @@ export function ContactForm() {
             value={values[field]}
             onChange={updateField(field)}
             autoComplete={field === "email" ? "email" : "name"}
-            placeholder={field === "email" ? "youremail@example.com" : "Your name"}
+            placeholder={field === "email" ? "you@example.com" : "Your name"}
             aria-invalid={Boolean(errors[field])}
             aria-describedby={errors[field] ? `${field}-error` : undefined}
             className={inputClassName}
@@ -116,29 +119,27 @@ export function ContactForm() {
     >
       <div className="flex flex-col gap-2">
         <h3 className="font-display text-xl font-bold leading-8 text-ink">
-          Contact us
+          Send us a message
         </h3>
         <p className="text-sm leading-6 text-muted">
-          Fill out the fields and we will get in touch.
+          Share a few details and we’ll help you figure out what comes next.
         </p>
       </div>
 
       <div className="flex flex-col gap-5">
         {renderField("name", "Full name")}
         {renderField("email", "Email")}
-        {renderField("message", "Your question")}
+        {renderField("message", "Your message")}
       </div>
 
-      <Button
-        type="submit"
-        className="h-[52px] !w-full !px-7 !py-[14px]"
-        disabled={status === "sending"}
-      >
-        {status === "sending" ? "Sending…" : "Send message"}
+      <Button type="submit" className="h-[52px] !w-full !px-7 !py-[14px]">
+        Send message
       </Button>
 
-      <p role="status" aria-live="polite" className="text-center text-xs text-brand">
-        {status === "sent" ? "Thanks! We’ll reply within 24 hours on business days." : ""}
+      <p role="status" aria-live="polite" className="text-center text-xs leading-5 text-brand">
+        {submitted
+          ? "Thanks for trying the form! This demo isn’t connected to an inbox, so your message hasn’t been sent."
+          : ""}
       </p>
     </form>
   );

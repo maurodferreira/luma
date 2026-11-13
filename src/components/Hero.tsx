@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { socialProof } from "@/data/content";
 import { Avatars } from "./Avatars";
 import { Button } from "./Button";
 import { StarIcon } from "./Icons";
@@ -42,7 +43,8 @@ export function Hero() {
           <div className="mt-8 flex items-center justify-center gap-3 text-sm text-muted sm:justify-start">
             <Avatars />
             <p>
-              <strong className="font-bold text-ink">Trusted by 24,000+</strong> learners
+              <strong className="font-bold text-ink">Trusted by {socialProof.learners}</strong>{" "}
+              learners
             </p>
           </div>
         </div>
@@ -70,7 +72,7 @@ export function Hero() {
 
           <div className="absolute -left-2 top-1.5 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-[0_4px_12px_rgba(0,0,0,0.1)] lg:-left-[22px] lg:top-4">
             <span className="flex h-8 w-11 items-center justify-center rounded-lg bg-brand-soft text-sm font-bold text-brand">
-              120+
+              {socialProof.courses}
             </span>
             <span className="text-sm text-ink">expert-led courses</span>
           </div>
@@ -81,7 +83,7 @@ export function Hero() {
                 <StarIcon key={i} />
               ))}
             </span>
-            <span className="text-sm text-ink">4.9 avg rating</span>
+            <span className="text-sm text-ink">{socialProof.averageRating} avg rating</span>
           </div>
         </div>
       </div>
