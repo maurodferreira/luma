@@ -3,75 +3,139 @@
 import { useState, type FormEvent } from "react";
 import { Button } from "./Button";
 
-type Fields = { name: string; email: string; message: string };
+type Fields = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 type Errors = Partial<Record<keyof Fields, string>>;
 
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function validate(v: Fields): Errors {
-  const e: Errors = {};
-  if (v.name.trim().length < 2) e.name = "Please enter your full name.";
-  if (!emailRe.test(v.email)) e.email = "Please enter a valid email address.";
-  if (v.message.trim().length < 10) e.message = "Tell us a bit more (at least 10 characters).";
-  return e;
+function validate(values: Fields): Errors {
+  const errors: Errors = {};
+
+  if (values.name.trim().length < 2) {
+    errors.name = "Please enter your full name.";
+  }
+
+  if (!emailRe.test(values.email)) {
+    errors.email = "Please enter a valid email address.";
+  }
+
+  if (values.message.trim().length < 10) {
+    errors.message = "Tell us a bit more (at least 10 characters).";
+  }
+
+  return errors;
 }
 
-const inputCls =
-  "mt-1.5 w-full rounded-md border border-line bg-cream px-3 py-2.5 text-sm leading-6 placeholder:text-tertiary aria-[invalid=true]:border-red-500";
+const inputClassName =
+  "mt-2 h-12 w-full rounded-lg border border-line bg-cream px-4 py-3 text-sm leading-6 placeholder:text-tertiary aria-[invalid=true]:border-red-500";
 
 export function ContactForm() {
-  const [values, setValues] = useState<Fields>({ name: "", email: "", message: "" });
+  const [values, setValues] = useState<Fields>({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
 
-  const set = (k: keyof Fields) => (e: { target: { value: string } }) =>
-    setValues((v) => ({ ...v, [k]: e.target.value }));
+  const updateField = (field: keyof Fields) =>
+    (event: { target: { value: string } }) => {
+      setValues((current) => ({
+        ...current,
+        [field]: event.target.value,
+      }));
+    };
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const found = validate(values);
-    setErrors(found);
-    if (Object.keys(found).length) return;
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const validationErrors = validate(values);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) return;
+
     setStatus("sending");
-    await new Promise((r) => setTimeout(r, 700)); // mock request – no backend required
+    await new Promise((resolve) => setTimeout(resolve, 700));
     setStatus("sent");
     setValues({ name: "", email: "", message: "" });
   }
 
-  const field = (id: keyof Fields, label: string) => (
-    <div className="mt-4">
-      <label htmlFor={id} className="text-sm font-bold leading-6">{label}</label>
-      {id === "message" ? (
-        <textarea
-          id={id} rows={4} value={values[id]} onChange={set(id)}
-          placeholder="Tell us how we can help..."
-          aria-invalid={!!errors[id]} aria-describedby={errors[id] ? `${id}-err` : undefined}
-          className={`${inputCls} resize-y`}
-        />
-      ) : (
-        <input
-          id={id} type={id === "email" ? "email" : "text"} value={values[id]} onChange={set(id)}
-          autoComplete={id === "email" ? "email" : "name"}
-          placeholder={id === "email" ? "youremail@example.com" : "Your name"}
-          aria-invalid={!!errors[id]} aria-describedby={errors[id] ? `${id}-err` : undefined}
-          className={inputCls}
-        />
-      )}
-      {errors[id] && <p id={`${id}-err`} className="mt-1 text-xs text-red-600">{errors[id]}</p>}
-    </div>
-  );
+  function renderField(field: keyof Fields, label: string) {
+    return (
+      <div className="flex flex-col gap-2">
+        <label htmlFor={field} className="text-sm font-bold leading-6 text-ink">
+          {label}
+        </label>
+
+        {field === "message" ? (
+          <textarea
+            id={field}
+            rows={4}
+            value={values[field]}
+            onChange={updateField(field)}
+            placeholder="Tell us how we can help..."
+            aria-invalid={Boolean(errors[field])}
+            aria-describedby={errors[field] ? `${field}-error` : undefined}
+            className={`${inputClassName} h-[100px] resize-y md:h-[120px]`}
+          />
+        ) : (
+          <input
+            id={field}
+            type={field === "email" ? "email" : "text"}
+            value={values[field]}
+            onChange={updateField(field)}
+            autoComplete={field === "email" ? "email" : "name"}
+            placeholder={field === "email" ? "youremail@example.com" : "Your name"}
+            aria-invalid={Boolean(errors[field])}
+            aria-describedby={errors[field] ? `${field}-error` : undefined}
+            className={inputClassName}
+          />
+        )}
+
+        {errors[field] && (
+          <p id={`${field}-error`} className="text-xs leading-5 text-red-600">
+            {errors[field]}
+          </p>
+        )}
+      </div>
+    );
+  }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="rounded-xl border border-line bg-white p-6 shadow-lg shadow-ink/5 md:p-7">
-      <h3 className="font-display text-xl font-bold leading-8">Contact us</h3>
-      <p className="mt-1 text-sm leading-6 text-muted">Fill out the fields and we will get in touch.</p>
-      {field("name", "Full name")}
-      {field("email", "Email")}
-      {field("message", "Your question")}
-      <Button type="submit" className="mt-5 w-full" disabled={status === "sending"}>
+    <form
+      onSubmit={onSubmit}
+      noValidate
+      className="flex w-full flex-col gap-6 rounded-2xl border border-line bg-white px-5 py-6 shadow-[0_12px_16px_rgba(23,27,44,0.04)] md:p-10"
+    >
+      <div className="flex flex-col gap-2">
+        <h3 className="font-display text-xl font-bold leading-8 text-ink">
+          Contact us
+        </h3>
+        <p className="text-sm leading-6 text-muted">
+          Fill out the fields and we will get in touch.
+        </p>
+      </div>
+
+      <div className="flex flex-col gap-5">
+        {renderField("name", "Full name")}
+        {renderField("email", "Email")}
+        {renderField("message", "Your question")}
+      </div>
+
+      <Button
+        type="submit"
+        className="h-[52px] !w-full !px-7 !py-[14px]"
+        disabled={status === "sending"}
+      >
         {status === "sending" ? "Sending…" : "Send message"}
       </Button>
-      <p role="status" aria-live="polite" className="mt-3 min-h-5 text-center text-xs text-brand">
+
+      <p role="status" aria-live="polite" className="text-center text-xs text-brand">
         {status === "sent" ? "Thanks! We’ll reply within 24 hours on business days." : ""}
       </p>
     </form>
