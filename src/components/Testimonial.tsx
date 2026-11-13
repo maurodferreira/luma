@@ -18,16 +18,21 @@ function QuoteMark() {
 
 export function Testimonial() {
   return (
-    <section className="bg-white py-16 md:py-24" aria-label="Learner stories and numbers">
-      <div className="mx-auto grid w-full max-w-[1184px] gap-12 px-5 md:grid-cols-[735fr_385fr] md:items-center md:gap-0 md:px-8">
-        <figure>
+    <section
+      className="bg-white py-[60px] md:py-[100px]"
+      aria-label="Learner stories and numbers"
+    >
+      <div className="mx-auto grid w-full max-w-[1184px] gap-[60px] px-5 md:grid-cols-[735fr_385fr] md:items-center md:gap-0 md:px-8">
+        <figure className="max-w-[600px]">
           <QuoteMark />
-          <blockquote className="mt-4 max-w-[600px] font-display text-xl font-semibold leading-8 tracking-[-0.025em] text-ink md:text-[30px] md:leading-[44px]">
+
+          <blockquote className="mt-4 font-display text-xl font-semibold leading-8 text-ink md:text-[30px] md:leading-[44px] md:tracking-[-0.75px]">
             <p>
               The lessons are short enough to fit into my week, but detailed enough that I actually
               leave with something I can use.
             </p>
           </blockquote>
+
           <figcaption className="mt-8 flex items-center gap-4">
             <Image
               src="/avatar/alex-morgan.jpg"
@@ -36,19 +41,24 @@ export function Testimonial() {
               height={48}
               className="h-12 w-12 rounded-full object-cover"
             />
+
             <div>
-              <span className="block text-base font-bold leading-[26px] text-ink">Alex Morgan</span>
-              <span className="mt-1 block text-sm leading-6 text-muted">Product Manager</span>
+              <span className="block text-base font-bold leading-7 text-ink">
+                Alex Morgan
+              </span>
+              <span className="block text-sm leading-6 text-muted">
+                Product Manager
+              </span>
             </div>
           </figcaption>
         </figure>
 
-        <dl className="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-7 md:border-l md:border-line md:pl-12">
-          {stats.map((s) => (
-            <div key={s.label} className="flex flex-col-reverse">
-              <dt className="mt-1 text-sm leading-6 text-tertiary">{s.label}</dt>
+        <dl className="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-5 md:border-l md:border-line md:pl-12">
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex flex-col-reverse">
+              <dt className="mt-1 text-sm leading-6 text-tertiary">{stat.label}</dt>
               <dd className="font-display text-[40px] font-extrabold leading-[44px] tracking-[-1px] text-brand md:text-[64px] md:leading-[70px] md:tracking-[-1.6px]">
-                {s.value}
+                {stat.value}
               </dd>
             </div>
           ))}
