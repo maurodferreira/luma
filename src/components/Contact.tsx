@@ -34,7 +34,7 @@ export function Contact() {
       className="bg-white py-[60px] md:py-[100px]"
       aria-labelledby="contact-title"
     >
-      <Container className="grid items-center gap-10 md:grid-cols-[480px_minmax(0,1fr)] md:gap-[100px]">
+      <Container className="grid items-center gap-10 xl:grid-cols-[480px_minmax(0,1fr)] xl:gap-[100px]">
         <div className="flex flex-col gap-8 md:gap-10">
           <div>
             <SectionLabel>Contact</SectionLabel>

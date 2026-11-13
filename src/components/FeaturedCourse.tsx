@@ -13,12 +13,12 @@ export function FeaturedCourse() {
     >
       <Container className="grid items-center gap-10 md:grid-cols-2 md:gap-[60px]">
         <div className="relative">
-          <div className="relative h-[280px] overflow-hidden rounded-2xl md:h-[408px]">
+          <div className="relative h-[280px] overflow-hidden rounded-2xl md:aspect-[4/3] md:h-auto xl:aspect-auto xl:h-[408px]">
             <Image
               src="/images/couse.jpg"
               alt="Overhead view of a designer arranging material samples and prototypes on a desk"
               fill
-              sizes="(min-width: 768px) 50vw, calc(100vw - 40px)"
+              sizes="(min-width: 1280px) 530px, (min-width: 768px) 50vw, calc(100vw - 40px)"
               className="object-cover"
             />
           </div>

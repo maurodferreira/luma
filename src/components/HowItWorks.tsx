@@ -34,7 +34,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="bg-cream py-[60px] md:pb-32 md:pt-24"
+      className="bg-cream py-[60px] md:py-[100px]"
       aria-labelledby="how-title"
     >
       <div className="mx-auto w-full max-w-[1184px] px-5 md:px-8">
