@@ -58,7 +58,9 @@ export function HowItWorks() {
                 <>
                   <span
                     aria-hidden="true"
-                    className="absolute left-7 top-[221px] h-[50px] w-px bg-line md:hidden"
+                    className={`absolute left-7 w-px bg-line md:hidden ${
+                      index === 0 ? "top-[221px] h-[50px]" : "top-[224px] h-[47px]"
+                    }`}
                   />
                   <span
                     aria-hidden="true"

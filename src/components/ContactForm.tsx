@@ -31,8 +31,10 @@ function validate(values: Fields): Errors {
   return errors;
 }
 
-const inputClassName =
-  "mt-2 h-12 w-full rounded-lg border border-line bg-cream px-4 py-3 text-sm leading-6 placeholder:text-tertiary aria-[invalid=true]:border-red-500";
+const fieldControlClassName =
+  "mt-2 w-full rounded-lg border border-line bg-cream px-4 py-3 text-sm leading-6 placeholder:text-tertiary aria-[invalid=true]:border-red-500";
+
+const inputClassName = `${fieldControlClassName} h-12`;
 
 export function ContactForm() {
   const [values, setValues] = useState<Fields>({
@@ -81,7 +83,7 @@ export function ContactForm() {
             placeholder="Tell us how we can help..."
             aria-invalid={Boolean(errors[field])}
             aria-describedby={errors[field] ? `${field}-error` : undefined}
-            className={`${inputClassName} h-[100px] resize-y md:h-[120px]`}
+            className={`${fieldControlClassName} h-[100px] resize-y md:h-[120px]`}
           />
         ) : (
           <input
