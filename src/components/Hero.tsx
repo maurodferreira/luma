@@ -7,22 +7,25 @@ import { SectionLabel } from "./SectionLabel";
 export function Hero() {
   return (
     <section
-      className="overflow-x-clip bg-cream pb-12 pt-3.5 md:py-16 lg:py-[100px]"
+      className="overflow-x-clip bg-cream py-[60px] md:py-16 lg:py-[100px]"
       aria-labelledby="hero-title"
     >
-      <div className="mx-auto grid w-full max-w-[1184px] gap-11 px-5 md:grid-cols-2 md:gap-10 md:px-8 lg:grid-cols-[1fr_500px] lg:gap-20">
+      <div className="mx-auto grid w-full max-w-[1184px] gap-10 px-5 md:grid-cols-2 md:px-8 lg:grid-cols-[minmax(0,1fr)_500px] lg:gap-[60px]">
         <div className="order-2 md:order-1">
           <SectionLabel>Learn at your own pace</SectionLabel>
+
           <h1
             id="hero-title"
-            className="mt-4 font-display text-[40px] font-extrabold leading-[1.1] tracking-[-1px] text-ink md:text-[52px] md:tracking-[-1.3px] lg:text-[64px] lg:tracking-[-1.6px]"
+            className="mt-4 font-display text-[40px] font-extrabold leading-[1.1] tracking-[-1px] text-ink md:text-[52px] md:tracking-[-1.3px] lg:text-[64px] lg:leading-[70px] lg:tracking-[-1.6px]"
           >
             Build skills that actually move you forward.
           </h1>
-          <p className="mt-[22px] max-w-[480px] text-base leading-[26px] text-muted lg:text-lg lg:leading-7">
+
+          <p className="mt-6 max-w-[480px] text-base leading-[26px] text-muted lg:text-lg lg:leading-7">
             Practical courses taught by people who do the work every day. Learn design, technology,
             business and more — one focused lesson at a time.
           </p>
+
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button href="#courses" className="h-[52px]! px-7! font-bold lg:h-[54px]!">
               Explore courses
@@ -35,6 +38,7 @@ export function Hero() {
               See how it works
             </Button>
           </div>
+
           <div className="mt-8 flex items-center justify-center gap-3 text-sm text-muted sm:justify-start">
             <Avatars />
             <p>
@@ -44,17 +48,16 @@ export function Hero() {
         </div>
 
         <div className="relative order-1 mx-2 sm:mx-auto sm:w-full sm:max-w-[500px] md:order-2 md:mx-0 md:max-w-none">
-          {/* decorative shapes */}
           <div
             aria-hidden="true"
-            className="absolute -right-[18px] bottom-[13px] top-6 w-1/2 rounded-3xl bg-peach lg:-right-10 lg:bottom-7"
+            className="absolute bottom-[14px] left-[92.5px] top-6 w-[271.5px] rounded-2xl bg-peach sm:left-auto sm:right-[-18px] sm:w-1/2 md:bottom-7 md:top-6 md:w-1/2 lg:right-[-39px] lg:bottom-7 lg:top-6 lg:w-[89px]"
           />
           <div
             aria-hidden="true"
-            className="absolute -left-[18px] bottom-[9px] h-16 w-16 rounded-full bg-brand-soft lg:-left-[45px] lg:bottom-[11px] lg:h-[106px] lg:w-[106px]"
+            className="absolute -left-[18px] bottom-[12px] h-16 w-16 rounded-full bg-brand-soft lg:-left-[45px] lg:bottom-[11px] lg:h-[106px] lg:w-[106px]"
           />
 
-          <div className="relative aspect-[346/379] overflow-hidden rounded-3xl md:aspect-[25/26]">
+          <div className="relative aspect-[173/190] overflow-hidden rounded-2xl md:aspect-[25/26] md:rounded-3xl">
             <Image
               src="/images/hero.jpg"
               alt="A smiling learner working on a laptop in a bright workspace"
@@ -65,14 +68,14 @@ export function Hero() {
             />
           </div>
 
-          <div className="absolute -left-2 top-1.5 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-[0_8px_24px_rgba(18,22,43,0.08)] lg:-left-[22px] lg:top-4">
+          <div className="absolute -left-2 top-1.5 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-[0_4px_12px_rgba(0,0,0,0.1)] lg:-left-[22px] lg:top-4">
             <span className="flex h-8 w-11 items-center justify-center rounded-lg bg-brand-soft text-sm font-bold text-brand">
               120+
             </span>
             <span className="text-sm text-ink">expert-led courses</span>
           </div>
 
-          <div className="absolute -right-[19px] bottom-9 flex items-center gap-2.5 rounded-2xl bg-white px-4 py-3.5 shadow-[0_8px_24px_rgba(18,22,43,0.08)] lg:-right-[57px]">
+          <div className="absolute -right-[27px] bottom-9 flex items-center gap-2.5 rounded-xl bg-white px-4 py-3.5 shadow-[0_4px_12px_rgba(0,0,0,0.1)] lg:-right-[57px]">
             <span className="flex gap-[3px] text-sun" aria-hidden="true">
               {Array.from({ length: 5 }).map((_, i) => (
                 <StarIcon key={i} />
