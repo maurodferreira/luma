@@ -16,7 +16,7 @@ export function FeaturedCourse() {
             sizes="(min-width: 768px) 560px, 100vw"
             className="object-cover"
           />
-          <span className="absolute left-0 top-3 rounded-r-md bg-sun px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-ink">
+          <span className="absolute left-0 top-3 rounded-r-md bg-sun px-2.5 py-1 text-xs font-bold uppercase leading-4 tracking-[1.44px] text-ink">
             Featured course
           </span>
         </div>
@@ -32,12 +32,12 @@ export function FeaturedCourse() {
           <p className="mt-5 text-sm leading-6 text-white/85 md:text-base md:leading-7">with Maya Chen · Senior Product Designer</p>
           <ul className="mt-4 flex flex-wrap gap-2 text-sm leading-6">
             {courseMeta.map((m) => (
-              <li key={m} className="rounded-md border border-white/40 px-2.5 py-1 text-[11px]">{m}</li>
+              <li key={m} className="rounded-md border border-white/40 px-2.5 py-1 text-sm leading-6">{m}</li>
             ))}
           </ul>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
             <Button href="#contact" variant="sun">View course</Button>
-            <a href="#courses" className="inline-flex items-center justify-center gap-2 text-sm font-medium hover:underline">
+            <a href="#courses" className="inline-flex items-center justify-center gap-2 text-sm font-bold hover:underline">
               Browse all courses <ArrowRight />
             </a>
           </div>

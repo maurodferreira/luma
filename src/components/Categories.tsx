@@ -6,7 +6,7 @@ import { SectionLabel } from "./SectionLabel";
 function CategoryCard({ id, title, text }: Category) {
   return (
     <li className="flex flex-col rounded-xl border border-line bg-white p-5 shadow-[0_1px_2px_rgba(18,22,43,0.04)] transition-shadow hover:shadow-md">
-      <span className="w-fit rounded-md bg-brand-soft px-2 py-0.5 text-[10px] font-semibold text-brand">{id}</span>
+      <span className="w-fit rounded-md bg-brand-soft px-2 py-0.5 text-xs font-semibold leading-4 text-brand">{id}</span>
       <h3 className="mt-5 font-display text-xl font-bold leading-7 md:leading-8">{title}</h3>
       <p className="mt-2 flex-1 text-sm leading-6 text-tertiary">{text}</p>
       <a href="#featured" className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold" aria-label={`Explore ${title}`}>
