@@ -11,7 +11,7 @@ type Fields = {
 
 type Errors = Partial<Record<keyof Fields, string>>;
 
-const nameRe = /^\p{L}\p{M}*(?:[ . '\u2019-]\p{L}\p{M}*)*$/u;
+const nameRe = /^\p{L}[\p{L}\p{M}]*(?:[ .'\u2019-]\p{L}[\p{L}\p{M}]*)*$/u;
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function validate(values: Fields): Errors {
