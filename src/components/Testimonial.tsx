@@ -1,0 +1,59 @@
+import Image from "next/image";
+import { stats } from "@/data/content";
+
+function QuoteMark() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 26 22"
+      className="h-[22px] w-[26px] fill-brand stroke-brand"
+      strokeWidth="1.5"
+      strokeLinejoin="round"
+    >
+      <path d="M1 1h8L7.5 21h-5z" />
+      <path d="M16 1h8l-1.5 20h-5z" />
+    </svg>
+  );
+}
+
+export function Testimonial() {
+  return (
+    <section className="bg-white py-16 md:py-24" aria-label="Learner stories and numbers">
+      <div className="mx-auto grid w-full max-w-[1184px] gap-12 px-5 md:grid-cols-[735fr_385fr] md:items-center md:gap-0 md:px-8">
+        <figure>
+          <QuoteMark />
+          <blockquote className="mt-4 max-w-[600px] font-display text-2xl font-semibold leading-8 tracking-[-0.02em] text-ink md:text-[32px] md:leading-[44px]">
+            <p>
+              The lessons are short enough to fit into my week, but detailed enough that I actually
+              leave with something I can use.
+            </p>
+          </blockquote>
+          <figcaption className="mt-8 flex items-center gap-4">
+            <Image
+              src="/avatar/alex-morgan.jpg"
+              alt="Alex Morgan"
+              width={48}
+              height={48}
+              className="h-12 w-12 rounded-full object-cover"
+            />
+            <div>
+              <span className="block text-[15px] font-bold leading-5 text-ink">Alex Morgan</span>
+              <span className="mt-1 block text-sm leading-5 text-[#6b7080]">Product Manager</span>
+            </div>
+          </figcaption>
+        </figure>
+
+        <dl className="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-7 md:border-l md:border-[#e6e6e3] md:pl-12">
+          {stats.map((s) => (
+            <div key={s.label} className="flex flex-col-reverse">
+              <dt className="mt-1 text-xs leading-5 text-[#6b7080] md:text-sm">{s.label}</dt>
+              <dd className="font-display text-[28px] font-extrabold leading-none tracking-[-0.03em] text-brand md:text-[64px]">
+                {s.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  );
+}
