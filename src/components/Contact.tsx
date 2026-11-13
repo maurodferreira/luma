@@ -8,7 +8,7 @@ function InfoRow({ icon, title, children }: { icon: ReactNode; title: string; ch
   return (
     <li className="flex items-center gap-3 rounded-lg bg-cream p-4">
       <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-soft text-brand">{icon}</span>
-      <div className="text-xs">
+      <div className="text-sm leading-6">
         <p className="font-semibold">{title}</p>
         <p className="mt-0.5 text-muted">{children}</p>
       </div>
@@ -22,10 +22,10 @@ export function Contact() {
       <Container className="grid gap-10 md:grid-cols-2 md:gap-16">
         <div>
           <SectionLabel>Contact</SectionLabel>
-          <h2 id="contact-title" className="mt-3 font-display text-[32px] font-extrabold leading-[1.1] tracking-tight md:text-[44px]">
+          <h2 id="contact-title" className="mt-3 font-display text-[32px] font-extrabold leading-9 tracking-tight md:text-[48px] md:leading-[56px]">
             Get in touch
           </h2>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
+          <p className="mt-4 max-w-sm text-sm leading-6 text-muted md:text-lg md:leading-7">
             Have a question? We’re here to help. Whether you’re looking for the right course, learning with your team or interested in teaching with Luma, we’d love to hear from you.
           </p>
           <ul className="mt-7 grid max-w-sm gap-3">

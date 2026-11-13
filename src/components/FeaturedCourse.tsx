@@ -22,15 +22,15 @@ export function FeaturedCourse() {
         </div>
 
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/80">Most popular this month</p>
-          <h2 id="featured-title" className="mt-3 font-display text-[32px] font-extrabold leading-[1.1] tracking-tight md:text-[40px]">
+          <p className="text-xs font-semibold uppercase leading-4 tracking-[1.44px] text-white/80">Most popular this month</p>
+          <h2 id="featured-title" className="mt-3 font-display text-[32px] font-extrabold leading-9 tracking-tight md:text-[48px] md:leading-[56px]">
             Designing products people understand.
           </h2>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-white/85">
+          <p className="mt-4 max-w-md text-sm leading-6 text-white/85 md:text-base md:leading-7">
             Learn how to turn complex workflows into simple, intentional product experiences through research, structure and thoughtful interaction design.
           </p>
-          <p className="mt-5 text-xs text-white/85">with Maya Chen · Senior Product Designer</p>
-          <ul className="mt-4 flex flex-wrap gap-2">
+          <p className="mt-5 text-sm leading-6 text-white/85 md:text-base md:leading-7">with Maya Chen · Senior Product Designer</p>
+          <ul className="mt-4 flex flex-wrap gap-2 text-sm leading-6">
             {courseMeta.map((m) => (
               <li key={m} className="rounded-md border border-white/40 px-2.5 py-1 text-[11px]">{m}</li>
             ))}

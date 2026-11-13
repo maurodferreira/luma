@@ -1,18 +1,33 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* Typography */
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-display: var(--font-jakarta), system-ui, sans-serif;
-  --color-brand: #3355ff;
+
+  /* Brand */
+  --color-brand: #3157f6;
   --color-brand-dark: #2641d9;
-  --color-brand-soft: #e8ecff;
-  --color-ink: #12162b;
-  --color-muted: #5b6075;
-  --color-cream: #f8f5ee;
-  --color-sun: #ffe570;
-  --color-sun-bg: #fff0b8;
-  --color-navy: #141a33;
-  --color-line: #e6e3da;
+  --color-brand-soft: #e2e8ff;
+
+  /* Text */
+  --color-ink: #171b2c;
+  --color-muted: #656770;
+  --color-tertiary: #6d7384;
+  --color-footer-muted: #9e9faa;
+  --color-white-muted: #e7e7ec;
+
+  /* Surfaces and borders */
+  --color-cream: #f9f8f3;
+  --color-navy: #171b2c;
+  --color-line: #dbdfeb;
+  --color-sun: #ffee7e;
+  --color-sun-bg: #fff1c2;
+
+  /* Decorative accents */
+  --color-peach: #ffcb9f;
+  --color-coral: #ff704d;
+  --color-sun-accent: #e9d659;
 }
 
 html {
@@ -36,6 +51,7 @@ body {
   html {
     scroll-behavior: auto;
   }
+
   *,
   *::before,
   *::after {

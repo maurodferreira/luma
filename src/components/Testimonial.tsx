@@ -22,7 +22,7 @@ export function Testimonial() {
       <div className="mx-auto grid w-full max-w-[1184px] gap-12 px-5 md:grid-cols-[735fr_385fr] md:items-center md:gap-0 md:px-8">
         <figure>
           <QuoteMark />
-          <blockquote className="mt-4 max-w-[600px] font-display text-2xl font-semibold leading-8 tracking-[-0.02em] text-ink md:text-[32px] md:leading-[44px]">
+          <blockquote className="mt-4 max-w-[600px] font-display text-xl font-semibold leading-8 tracking-[-0.025em] text-ink md:text-[30px] md:leading-[44px]">
             <p>
               The lessons are short enough to fit into my week, but detailed enough that I actually
               leave with something I can use.
@@ -37,17 +37,17 @@ export function Testimonial() {
               className="h-12 w-12 rounded-full object-cover"
             />
             <div>
-              <span className="block text-[15px] font-bold leading-5 text-ink">Alex Morgan</span>
-              <span className="mt-1 block text-sm leading-5 text-[#6b7080]">Product Manager</span>
+              <span className="block text-base font-bold leading-[26px] text-ink">Alex Morgan</span>
+              <span className="mt-1 block text-sm leading-6 text-muted">Product Manager</span>
             </div>
           </figcaption>
         </figure>
 
-        <dl className="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-7 md:border-l md:border-[#e6e6e3] md:pl-12">
+        <dl className="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-7 md:border-l md:border-line md:pl-12">
           {stats.map((s) => (
             <div key={s.label} className="flex flex-col-reverse">
-              <dt className="mt-1 text-xs leading-5 text-[#6b7080] md:text-sm">{s.label}</dt>
-              <dd className="font-display text-[28px] font-extrabold leading-none tracking-[-0.03em] text-brand md:text-[64px]">
+              <dt className="mt-1 text-sm leading-6 text-tertiary">{s.label}</dt>
+              <dd className="font-display text-[40px] font-extrabold leading-[44px] tracking-[-1px] text-brand md:text-[64px] md:leading-[70px] md:tracking-[-1.6px]">
                 {s.value}
               </dd>
             </div>

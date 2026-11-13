@@ -15,11 +15,11 @@ export function Hero() {
           <SectionLabel>Learn at your own pace</SectionLabel>
           <h1
             id="hero-title"
-            className="mt-4 font-display text-[40px] font-extrabold leading-[1.1] tracking-[-0.04em] text-ink md:text-[52px] lg:text-[64px]"
+            className="mt-4 font-display text-[40px] font-extrabold leading-[1.1] tracking-[-1px] text-ink md:text-[52px] md:tracking-[-1.3px] lg:text-[64px] lg:tracking-[-1.6px]"
           >
             Build skills that actually move you forward.
           </h1>
-          <p className="mt-[22px] max-w-[480px] text-base leading-[26px] text-[#6b7080] lg:text-lg lg:leading-7">
+          <p className="mt-[22px] max-w-[480px] text-base leading-[26px] text-muted lg:text-lg lg:leading-7">
             Practical courses taught by people who do the work every day. Learn design, technology,
             business and more — one focused lesson at a time.
           </p>
@@ -30,12 +30,12 @@ export function Hero() {
             <Button
               href="#how-it-works"
               variant="secondary"
-              className="h-[52px]! border-[#e3e4ea]! px-7! font-bold lg:h-[54px]!"
+              className="h-[52px]! border-line! px-7! font-bold lg:h-[54px]!"
             >
               See how it works
             </Button>
           </div>
-          <div className="mt-8 flex items-center justify-center gap-3 text-sm text-[#6b7080] sm:justify-start">
+          <div className="mt-8 flex items-center justify-center gap-3 text-sm text-muted sm:justify-start">
             <Avatars />
             <p>
               <strong className="font-bold text-ink">Trusted by 24,000+</strong> learners
@@ -47,11 +47,11 @@ export function Hero() {
           {/* decorative shapes */}
           <div
             aria-hidden="true"
-            className="absolute -right-[18px] bottom-[13px] top-6 w-1/2 rounded-3xl bg-[#ffc999] lg:-right-10 lg:bottom-7"
+            className="absolute -right-[18px] bottom-[13px] top-6 w-1/2 rounded-3xl bg-peach lg:-right-10 lg:bottom-7"
           />
           <div
             aria-hidden="true"
-            className="absolute -left-[18px] bottom-[9px] h-16 w-16 rounded-full bg-[#e3e8ff] lg:-left-[45px] lg:bottom-[11px] lg:h-[106px] lg:w-[106px]"
+            className="absolute -left-[18px] bottom-[9px] h-16 w-16 rounded-full bg-brand-soft lg:-left-[45px] lg:bottom-[11px] lg:h-[106px] lg:w-[106px]"
           />
 
           <div className="relative aspect-[346/379] overflow-hidden rounded-3xl md:aspect-[25/26]">
@@ -66,14 +66,14 @@ export function Hero() {
           </div>
 
           <div className="absolute -left-2 top-1.5 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-[0_8px_24px_rgba(18,22,43,0.08)] lg:-left-[22px] lg:top-4">
-            <span className="flex h-8 w-11 items-center justify-center rounded-lg bg-[#e3e8ff] text-sm font-bold text-brand">
+            <span className="flex h-8 w-11 items-center justify-center rounded-lg bg-brand-soft text-sm font-bold text-brand">
               120+
             </span>
             <span className="text-sm text-ink">expert-led courses</span>
           </div>
 
           <div className="absolute -right-[19px] bottom-9 flex items-center gap-2.5 rounded-2xl bg-white px-4 py-3.5 shadow-[0_8px_24px_rgba(18,22,43,0.08)] lg:-right-[57px]">
-            <span className="flex gap-[3px] text-[#ffe680]" aria-hidden="true">
+            <span className="flex gap-[3px] text-sun" aria-hidden="true">
               {Array.from({ length: 5 }).map((_, i) => (
                 <StarIcon key={i} />
               ))}

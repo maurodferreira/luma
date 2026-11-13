@@ -17,7 +17,7 @@ function validate(v: Fields): Errors {
 }
 
 const inputCls =
-  "mt-1.5 w-full rounded-md border border-line bg-cream px-3 py-2.5 text-sm placeholder:text-muted/60 aria-[invalid=true]:border-red-500";
+  "mt-1.5 w-full rounded-md border border-line bg-cream px-3 py-2.5 text-sm leading-6 placeholder:text-tertiary aria-[invalid=true]:border-red-500";
 
 export function ContactForm() {
   const [values, setValues] = useState<Fields>({ name: "", email: "", message: "" });
@@ -40,7 +40,7 @@ export function ContactForm() {
 
   const field = (id: keyof Fields, label: string) => (
     <div className="mt-4">
-      <label htmlFor={id} className="text-xs font-semibold">{label}</label>
+      <label htmlFor={id} className="text-sm font-bold leading-6">{label}</label>
       {id === "message" ? (
         <textarea
           id={id} rows={4} value={values[id]} onChange={set(id)}
@@ -63,8 +63,8 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate className="rounded-xl border border-line bg-white p-6 shadow-lg shadow-ink/5 md:p-7">
-      <h3 className="font-display text-lg font-bold">Contact us</h3>
-      <p className="mt-1 text-xs text-muted">Fill out the fields and we will get in touch.</p>
+      <h3 className="font-display text-xl font-bold leading-8">Contact us</h3>
+      <p className="mt-1 text-sm leading-6 text-muted">Fill out the fields and we will get in touch.</p>
       {field("name", "Full name")}
       {field("email", "Email")}
       {field("message", "Your question")}

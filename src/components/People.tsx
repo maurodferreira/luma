@@ -9,10 +9,10 @@ export function People() {
       <Container className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
         <div>
           <SectionLabel>The people</SectionLabel>
-          <h2 id="people-title" className="mt-3 font-display text-[32px] font-extrabold leading-[1.1] tracking-tight md:text-[44px]">
+          <h2 id="people-title" className="mt-3 font-display text-[32px] font-extrabold leading-9 tracking-tight md:text-[48px] md:leading-[56px]">
             Meet international students &amp; teachers
           </h2>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-muted">
+          <p className="mt-5 max-w-md text-base leading-[26px] text-muted md:text-lg md:leading-7">
             Morbi sit egestas dignissim pharetra, sed amet. Tempus justo senectus risus ac vel, velit, nunc. Eget commodo eget in aliquam facilisi facilisi nec, magna hendrerit. Placerat ipsum sit lectus urna, faucibus aenean lorem facilisi tincidunt.
           </p>
           <Button href="#contact" variant="light" className="mt-7 w-full sm:w-auto">
