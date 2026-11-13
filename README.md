@@ -24,8 +24,8 @@ npm start
 
 ## Implementation notes
 
-- Each landing-page section is a reusable React component with typed props.
-- Page copy and illustrative data are centralized in `src/data/content.ts`.
+- The page is split into focused section components. Shared UI components use TypeScript types for their props.
+- Structured content such as categories, course details, steps, testimonials and metrics is kept in `src/data/content.ts`, separate from presentation.
 - Colors and typography use shared Tailwind CSS theme tokens; fonts load through `next/font`.
 - The page uses semantic HTML, a skip link, visible focus styles, labelled form fields, validation feedback and descriptive image alt text.
 - The mobile navigation supports keyboard use and closes with Escape.
@@ -42,7 +42,7 @@ No automated test suite or Storybook is included; both are optional for this cha
 
 ## Validation and time spent
 
-The page was reviewed in the browser at desktop and mobile viewport sizes. The following checks completed successfully during development:
+The desktop and mobile layouts were visually checked in the browser at 1280px and 402px viewport widths. The following checks completed successfully during development:
 
 - `npm run lint`
 - `npm run typecheck`
