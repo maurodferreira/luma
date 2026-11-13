@@ -48,13 +48,13 @@ The desktop and mobile layouts were visually checked in the browser at 1280px an
 - `npm run typecheck`
 - `npm run build`
 
-**Approximate time spent:** 2 days (November 12–13, 2026).
+**Approximate time spent:** 26 hous (2 days, November 12–13, 2026).
 
 ## AI tools
 
 AI tools supported parts of the development workflow:
 
 - Claude (Anthropic) helped create the initial component scaffolding.
-- ChatGPT (OpenAI) assisted with code reviews, identifying potential improvements, responsive refinements, content editing and documentation.
+- ChatGPT (OpenAI) identifying potential improvements, content editing and documentation.
 
 AI-assisted suggestions were reviewed and adapted rather than accepted blindly. The implementation was checked in the browser at desktop and mobile sizes, and validated with ESLint, TypeScript and a production build. Final technical decisions and responsibility for the submitted code remain with the developer.
