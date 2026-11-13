@@ -11,16 +11,20 @@ type Fields = {
 
 type Errors = Partial<Record<keyof Fields, string>>;
 
+const nameRe = /^\p{L}\p{M}*(?:[ . '\u2019-]\p{L}\p{M}*)*$/u;
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function validate(values: Fields): Errors {
   const errors: Errors = {};
+  const normalizedName = values.name.trim().replace(/\s+/g, " ");
+  const letterCount = normalizedName.match(/\p{L}/gu)?.length ?? 0;
 
-  if (values.name.trim().length < 2) {
-    errors.name = "Please enter your full name.";
+  if (letterCount < 2 || !nameRe.test(normalizedName)) {
+    errors.name =
+      "Please enter a valid name using letters and common separators only.";
   }
 
-  if (!emailRe.test(values.email)) {
+  if (!emailRe.test(values.email.trim())) {
     errors.email = "Please enter a valid email address.";
   }
 
@@ -51,6 +55,15 @@ export function ContactForm() {
         ...current,
         [field]: event.target.value,
       }));
+
+      setErrors((current) => {
+        if (!current[field]) return current;
+
+        const next = { ...current };
+        delete next[field];
+        return next;
+      });
+
       setSubmitted(false);
     };
 
@@ -81,6 +94,9 @@ export function ContactForm() {
           <textarea
             id={field}
             rows={4}
+            required
+            minLength={10}
+            maxLength={2000}
             value={values[field]}
             onChange={updateField(field)}
             placeholder="Tell us how we can help..."
@@ -92,9 +108,12 @@ export function ContactForm() {
           <input
             id={field}
             type={field === "email" ? "email" : "text"}
+            required
+            maxLength={field === "name" ? 100 : 254}
             value={values[field]}
             onChange={updateField(field)}
             autoComplete={field === "email" ? "email" : "name"}
+            autoCapitalize={field === "name" ? "words" : "none"}
             placeholder={field === "email" ? "you@example.com" : "Your name"}
             aria-invalid={Boolean(errors[field])}
             aria-describedby={errors[field] ? `${field}-error` : undefined}
